@@ -17,8 +17,8 @@ medusa-http-bruteforce/
 ├── comando-medusa.txt # comando usado (texto)
 ├── script.sh # script executável (opcional, Linux)
 └── images/
-├── tela1-configuracao.png
-└── tela2-resultado.png
+├── kalih-medusa.png
+└── kalih-medusa2.png
 
 
 ---
