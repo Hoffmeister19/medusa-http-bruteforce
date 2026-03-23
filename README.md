@@ -1,7 +1,7 @@
 
 
 
-# Simulating a Brute Force Password Attack with Medusa and Kali Linux
+# Simulação de um ataque de força bruta a senhas com Medusa e Kali Linux
 
 ## Resumo
 Projeto realizado como entrega do desafio. O objetivo é demonstrar um ataque de força-bruta a um formulário HTTP usando a ferramenta **Medusa** contra uma aplicação vulnerável (ex.: DVWA). O repositório contém as wordlists usadas, o comando/script executado e evidências (capturas de tela).
