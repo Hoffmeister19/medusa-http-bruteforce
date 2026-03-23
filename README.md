@@ -1,5 +1,5 @@
 # medusa-http-bruteforce
-Brute-force HTTP form attack using Medusa against DVWA — wordlists, scripts and screenshots.
+
 
 # Simulating a Brute Force Password Attack with Medusa and Kali Linux
 
