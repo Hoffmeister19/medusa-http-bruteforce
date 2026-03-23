@@ -1,4 +1,4 @@
-# medusa-http-bruteforce
+
 
 
 # Simulating a Brute Force Password Attack with Medusa and Kali Linux
